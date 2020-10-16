@@ -1,0 +1,39 @@
+body {
+    font-family:Arial;
+    font-size:12px;
+    background:#ededed;
+  }
+  .example-desc {
+    margin:3px 0;
+    padding:5px;
+  }
+  
+  #carousel {
+    width:960px;
+    height:300px;
+    position:relative;
+    clear:both;
+    overflow:hidden;
+    background:transparent;
+  }
+  #carousel img {
+    visibility:hidden; /*hide images until carousel can handle them */
+    cursor:pointer; /* otherwise it's not as obvious items can be clicked */
+  }
+  
+  .split-left {
+    width:450px;
+    float:left;
+  }
+  .split-right {
+    width:400px;
+    float:left;
+    margin-left:10px;
+  }
+  #callback-output {
+    height:250px;
+    overflow:scroll;
+  }
+  textarea#newoptions {
+    width:430px;
+  }

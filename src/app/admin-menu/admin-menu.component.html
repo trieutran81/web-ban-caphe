@@ -1,0 +1,42 @@
+<div class="sidebar" data-background-color="white" data-active-color="danger">
+  <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="admin/index" class="simple-text">
+                Cf 81
+            </a>
+        </div>
+        <ul class="nav">
+            <li routerLinkActive="active">
+                <a [routerLink] = "['/admin/account-info']" >
+                    <i class="ti-user"></i>
+                    <p>Thông tin cá nhân</p>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink] = "['/admin/type'||'/admin/type/detail']">
+                    <i class="ti-direction-alt"></i>
+                    <p>Quản lý cà phê</p>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink] = "['/admin/member']" >
+                    <i class="ti-menu"></i>
+                    <p>Quản lý khách hàng</p>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink] = "['/admin/bill'||'/admin/bill/detail']" >
+                    <i class="ti-pencil-alt"></i>
+                    <p>Thông kê hóa đơn</p>
+                </a>
+            </li>
+            
+            <li routerLinkActive="active" class="active-pro">
+                <a [routerLink] = "['/admin/index']">
+                    <i class="ti-home"></i>
+                    <p>Xem trang chủ</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

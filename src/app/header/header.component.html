@@ -1,0 +1,83 @@
+<div class="header">
+  <div class="wrap">
+    <div class="top-header">
+      <div class="logo">
+        <a href="">
+          <img src="../../assets/member/images/logo2.png" title="logo" />
+        </a>
+      </div>
+      <div class="social-icons">
+        <ul>
+            
+          <li>
+            <a href="#">
+              <img src="../../assets/member/images/facebook.png" title="facebook" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="../../assets/member/images/twitter.png" title="twitter" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="../../assets/member/images/google.png" title="google pluse" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="clear"> </div>
+    </div>
+    <!-- -start-top-nav- -->
+    <div class="top-nav">
+      <div class="top-nav-left">
+        <ul>
+          <li routerLinkActive="active" >
+            <a [routerLink] = "['/index']" >Trang Chủ</a>
+          </li>
+          <li routerLinkActive="active">
+            <a href="">Giới Thiệu</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink] = "['/product']">Sản Phẩm </a>
+          </li>
+          <li routerLinkActive="active">
+            <a href="">Khuyến Mãi</a>
+          </li>
+          <li>
+            <a href="">Liên hệ</a>
+          </li>
+          <li *ngIf="email" routerLinkActive="active" (click)="onLogout()">
+            <a href="" >Đăng Xuất</a>
+          </li>
+          <li *ngIf="email == null" routerLinkActive="active">
+            <a [routerLink] = "['/login']">Đăng Nhập</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink] = "['/cart']">
+                <img [src]="imgCart" height="22px" width="30px">
+            </a>
+          </li>
+          
+            <li *ngIf="email"routerLinkActive="active" >
+              <a [routerLink] = "['/profile']">
+                <img [src]="avatar" style="height: 22px;width: 22px;border-radius: 50%;
+                position: relative; margin: 0;padding: 0" title="{{user.lastname}}" />
+              </a>
+            </li>
+          
+          <div class="clear"> </div>
+        </ul>
+      </div>
+      <div class="top-nav-right">
+        
+        <form>
+          <input type="text">
+          <input type="submit" value="" />
+        </form>
+      </div>
+      <div class="clear"> </div>
+    </div>
+    <!---End-top-nav---->
+  </div>
+</div>

@@ -1,0 +1,423 @@
+
+/* General utilities */
+.display-none,
+.display-hide {
+  display: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.primary-font {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
+.thin {
+  font-weight: 300 !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.fix-margin {
+  margin-left: 0px !important;
+}
+
+.border {
+  border: 1px solid red;
+}
+
+.font-hg {
+  font-size: 23px;
+}
+
+.font-lg {
+  font-size: 18px;
+}
+
+.font-md {
+  font-size: 14px;
+}
+
+.font-sm {
+  font-size: 13px;
+}
+
+.font-xs {
+  font-size: 11px;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.text-align-reverse {
+  text-align: right;
+}
+
+/* Form inputs */
+.form-control {
+  font-size: 14px;
+  font-weight: normal;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+  border-color: #999;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+}
+.form-control.height-auto {
+  height: auto;
+}
+.form-control.form-control-solid {
+  background-color: #F1F3F8;
+  border-color: #F1F3F8;
+  color: #A6B2BA;
+}
+.form-control.form-control-solid:focus {
+  border-color: #e3e7f1;
+}
+.form-control.form-control-solid::-moz-placeholder {
+  color: #acb7be;
+  opacity: 1;
+}
+.form-control.form-control-solid:-ms-input-placeholder {
+  color: #acb7be;
+}
+.form-control.form-control-solid::-webkit-input-placeholder {
+  color: #acb7be;
+}
+
+/***
+Portlets
+***/
+/* Full Screen portlet mode */
+.page-portlet-fullscreen {
+  overflow: hidden;
+}
+
+/* Basic portlet */
+.portlet > .portlet-title {
+  border-bottom: 1px solid #eee;
+  padding: 0;
+  margin-bottom: 10px;
+  min-height: 41px;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+.portlet > .portlet-title:before, .portlet > .portlet-title:after {
+  content: " ";
+  display: table;
+}
+.portlet > .portlet-title:after {
+  clear: both;
+}
+.portlet > .portlet-title > .caption {
+  float: left;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 300;
+  padding: 10px 0;
+}
+
+.portlet > .portlet-title > .nav-tabs {
+  background: none;
+  margin: 0;
+  float: right;
+  display: inline-block;
+  border: 0;
+}
+
+/* Light Portlet */
+.portlet.light {
+  padding: 12px 20px 15px 20px;
+  background-color: #fff;
+}
+.portlet.light.bordered {
+  border: 1px solid #e1e1e1 !important;
+}
+.portlet.light.bordered > .portlet-title {
+  border-bottom: 1px solid #eee;
+}
+
+.portlet.light > .portlet-title {
+  padding: 0;
+  min-height: 48px;
+}
+.portlet.light > .portlet-title > .caption {
+  color: #666;
+  padding: 10px 0;
+}
+.portlet.light > .portlet-title > .caption > .caption-subject {
+  font-size: 16px;
+}
+
+.portlet.light > .portlet-title > .caption.caption-md > .caption-subject {
+  font-size: 15px;
+}
+
+.portlet.light > .portlet-title > .nav-tabs > li {
+  margin: 0;
+  padding: 0;
+}
+.portlet.light > .portlet-title > .nav-tabs > li > a {
+  margin: 0;
+  padding: 12px 13px 13px 13px;
+  font-size: 13px;
+  color: #666;
+}
+
+.portlet.light.form-fit {
+  padding: 0;
+}
+.portlet.light.form-fit > .portlet-title {
+  padding: 17px 20px 10px 20px;
+  margin-bottom: 0;
+}
+.portlet.light .portlet-body {
+  padding-top: 8px;
+}
+
+/***
+Custom tabs
+***/
+/* In BS3.0.0 tabbable class was removed. We had to added it back */
+.tabbable:before, .tabbable:after {
+  content: " ";
+  display: table;
+}
+.tabbable:after {
+  clear: both;
+}
+
+.tabbable-custom {
+  margin-bottom: 15px;
+  padding: 0px;
+  overflow: hidden;
+  /* justified tabs */
+  /* boxless tabs */
+  /* below justified tabs */
+  /* full width tabs */
+  /* below tabs */
+}
+.tabbable-custom > .nav-tabs {
+  border: none;
+  margin: 0px;
+}
+.tabbable-custom > .nav-tabs > li {
+  margin-right: 2px;
+  border-top: 2px solid transparent;
+}
+.tabbable-custom > .nav-tabs > li > a {
+  margin-right: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+.tabbable-custom > .nav-tabs > li > a:hover {
+  background: none;
+  border-color: transparent;
+}
+.tabbable-custom > .nav-tabs > li.active {
+  border-top: 3px solid #F3565D;
+  margin-top: 0;
+  position: relative;
+}
+.tabbable-custom > .nav-tabs > li.active > a {
+  border-top: none;
+  font-weight: 400;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+.tabbable-custom > .nav-tabs > li.active > a:hover {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border-top: none;
+  background: #fff;
+  border-color: #d4d4d4 #d4d4d4 transparent;
+}
+.tabbable-custom > .tab-content {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -ms-border-radius: 0 0 4px 4px;
+  -o-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+.tabbable-custom.nav-justified > .tab-content {
+  margin-top: -1px;
+}
+.tabbable-custom.boxless > .tab-content {
+  padding: 15px 0;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+.tabbable-custom.tabs-below.nav-justified .tab-content {
+  margin-top: 0px;
+  margin-bottom: -2px;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+.tabbable-custom.tabbable-full-width > .nav-tabs > li > a {
+  color: #424242;
+  font-size: 15px;
+  padding: 9px 15px;
+}
+.tabbable-custom.tabbable-full-width > .tab-content {
+  padding: 15px 0;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+.tabbable-custom.tabs-below .nav-tabs > li > a {
+  border-top: none;
+  border-bottom: 2px solid transparent;
+  margin-top: -1px;
+}
+.tabbable-custom.tabs-below .nav-tabs > li.active {
+  border-top: none;
+  border-bottom: 3px solid #d12610;
+  margin-bottom: 0;
+  position: relative;
+}
+.tabbable-custom.tabs-below .nav-tabs > li.active > a {
+  border-bottom: none;
+}
+.tabbable-custom.tabs-below .nav-tabs > li.active > a:hover {
+  background: #fff;
+  border-color: #d4d4d4 #d4d4d4 transparent;
+}
+
+.tabbable-custom.tabbable-noborder > .nav-tabs > li > a {
+  border: 0;
+}
+.tabbable-custom.tabbable-noborder .tab-content {
+  border: 0;
+}
+
+.tabbable-line > .nav-tabs {
+  border: none;
+  margin: 0px;
+}
+.tabbable-line > .nav-tabs > li {
+  margin-right: 2px;
+}
+.tabbable-line > .nav-tabs > li > a {
+  border: 0;
+  margin-right: 0;
+  color: #737373;
+}
+.tabbable-line > .nav-tabs > li > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {
+  border-bottom: 4px solid #fbcdcf;
+}
+.tabbable-line > .nav-tabs > li.open > a, .tabbable-line > .nav-tabs > li:hover > a {
+  border: 0;
+  background: none !important;
+  color: #333;
+}
+.tabbable-line > .nav-tabs > li.open > a > i, .tabbable-line > .nav-tabs > li:hover > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open .dropdown-menu, .tabbable-line > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+.tabbable-line > .nav-tabs > li.active {
+  border-bottom: 4px solid #F3565D;
+  position: relative;
+}
+.tabbable-line > .nav-tabs > li.active > a {
+  border: 0;
+  color: #333;
+}
+.tabbable-line > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+
+/* Button */
+.btn.default {
+  color: #333333;
+  background-color: #E5E5E5;
+  border-color: "";
+}
+
+/* General Text & Icon Font Colors */
+.font-blue-madison {
+  color: #578ebe !important;
+}
+
+/***
+Green Haze
+***/
+/* Button */
+.green-haze.btn {
+  color: #FFFFFF;
+  background-color: #44b6ae;
+  border-color: "";
+}
+.green-haze.btn:hover, .green-haze.btn:focus, .green-haze.btn:active, .green-haze.btn.active {
+  color: #FFFFFF;
+  background-color: #3a9c95;
+}
+.open .green-haze.btn.dropdown-toggle {
+  color: #FFFFFF;
+  background-color: #3a9c95;
+}
+.green-haze.btn:active, .green-haze.btn.active {
+  background-image: none;
+  background-color: #338983;
+}
+.green-haze.btn:active:hover, .green-haze.btn.active:hover {
+  background-color: #36918b;
+}
+.open .green-haze.btn.dropdown-toggle {
+  background-image: none;
+}
+.green-haze.btn.disabled, .green-haze.btn.disabled:hover, .green-haze.btn.disabled:focus, .green-haze.btn.disabled:active, .green-haze.btn.disabled.active, .green-haze.btn[disabled], .green-haze.btn[disabled]:hover, .green-haze.btn[disabled]:focus, .green-haze.btn[disabled]:active, .green-haze.btn[disabled].active, fieldset[disabled] .green-haze.btn, fieldset[disabled] .green-haze.btn:hover, fieldset[disabled] .green-haze.btn:focus, fieldset[disabled] .green-haze.btn:active, fieldset[disabled] .green-haze.btn.active {
+  background-color: #44b6ae;
+}
+.green-haze.btn .badge {
+  color: #44b6ae;
+  background-color: #FFFFFF;
+}

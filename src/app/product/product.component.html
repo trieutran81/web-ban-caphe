@@ -1,0 +1,114 @@
+<app-header></app-header>
+<div class="content">
+  <!---start-services---->
+  <div class="services">
+    <div class="wrap">
+      <div class="specials" *ngIf="items?.length != 0">
+        <div class="specials-heading">
+          <label (click)="onGotoProductView(3)">
+            <a title="Cà phê rang xay">CÀ PHÊ RANG XAY</a>
+            <a class="viewmore">Xem Thêm ></a>
+          </label>
+
+          <div class="clear"> </div>
+        </div>
+        <div class="clear"> </div>
+        <div class="specials-grids">
+          <div class="special-grid" *ngFor="let item of itemsProduct">
+            <div *ngIf="item.typesId == 3">
+              <div *ngFor="let attachfile of attachFiles">
+                <div *ngIf="attachfile.itemId == item.id">
+                  <a>
+                    <img (click)="onGotoProductDetail(item.id)" [src]="attachfile.image" title="image-name" width="70%" height="40%">
+                  </a>
+                </div>
+              </div>
+              <a style="cursor:default" (click)="onGotoProductDetail(item.id)">
+                {{item.name}}(500g)
+              </a>
+
+              <h3>{{item.price}} VNĐ</h3>
+              <button (click) = "createCart(item.id)" class="btn-primary" type="button">
+                <span>Thêm vào giỏ</span>
+              </button>
+            </div>
+          </div>
+          <div class="clear"> </div>
+        </div>
+        <div class="clear"> </div>
+      </div>
+      <div class="specials" *ngIf="items?.length != 0">
+        <div class="specials-heading">
+          <label (click)="onGotoProductView(1)">
+            <a title="Cà phê rang xay">CÀ PHÊ BỘT</a>
+            <a class="viewmore">Xem Thêm ></a>
+          </label>
+
+          <div class="clear"> </div>
+        </div>
+        <div class="clear"> </div>
+        <div class="specials-grids">
+          <div class="special-grid" *ngFor="let item of itemsProduct">
+            <div *ngIf="item.typesId == 1">
+              <!-- <img src="images/slider2.jpg" title="image-name" width="70%" height="50%"> -->
+              <div *ngFor="let attachfile of attachFiles">
+                <div *ngIf="attachfile.itemId == item.id">
+                  <a>
+                    <img (click)="onGotoProductDetail(item.id)" [src]="attachfile.image" title="image-name" width="70%" height="40%">
+                  </a>
+                </div>
+              </div>
+              <a style="cursor:default" (click)="onGotoProductDetail(item.id)">
+                {{item.name}}(500g)
+              </a>
+
+              <h3>{{item.price}} VNĐ</h3>
+              <button (click) = "createCart(item.id)" class="btn-primary" type="button">
+                <span>Thêm vào giỏ</span>
+              </button>
+            </div>
+          </div>
+          <div class="clear"> </div>
+        </div>
+
+        <div class="clear"> </div>
+      </div>
+      <div class="specials" *ngIf="items?.length != 0">
+        <div class="specials-heading">
+          <label (click)="onGotoProductView(2)">
+            <a title="Cà phê rang xay">CÀ PHÊ HẠT</a>
+            <a class="viewmore">Xem Thêm ></a>
+          </label>
+
+          <div class="clear"> </div>
+        </div>
+        <div class="clear"> </div>
+        <div class="specials-grids">
+          <div class="special-grid" *ngFor="let item of itemsProduct">
+            <div *ngIf="item.typesId == 2">
+              <!-- <img src="images/slider2.jpg" title="image-name" width="70%" height="50%"> -->
+              <div *ngFor="let attachfile of attachFiles">
+                <div *ngIf="attachfile.itemId == item.id">
+                  <a>
+                    <img (click)="onGotoProductDetail(item.id)" [src]="attachfile.image" title="image-name" width="70%" height="40%">
+                  </a>
+                </div>
+              </div>
+              <a style="cursor:default" (click)="onGotoProductDetail(item.id)">
+                {{item.name}}(500g)
+              </a>
+
+              <h3>{{item.price}} VNĐ</h3>
+              <button (click) = "createCart(item.id)"class="btn-primary" type="button">
+                <span>Thêm vào giỏ</span>
+              </button>
+            </div>
+          </div>
+          <div class="clear"> </div>
+        </div>
+
+        <div class="clear"> </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

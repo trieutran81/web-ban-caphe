@@ -1,0 +1,101 @@
+<app-header></app-header>
+<div class="content">
+  <!---start-services---->
+  <div class="services">
+    <div class="wrap">
+      <div class="specials">
+        <div class="specials-heading">
+          <label>
+            <a [routerLink] = "['/index']" title="Trang Chủ">Trang Chủ</a>
+            |
+            <a [routerLink] = "['/product']" title="Sản phẩm">Sản Phẩm</a>
+            |
+            <a href="#" title="{{item.name}}">{{item.name}}</a>
+          </label>
+
+          <div class="clear"> </div>
+          <h3>{{item.name}} (500g)</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="box_pages">
+    <div class="box_pro_list">
+      <div class="pro_list_left">
+        <figure *ngIf="attachFiles">
+          <img alt=" Classic - Số 3 (500g)" [src]="attachFiles[0].image">
+
+        </figure>
+        <div class="small_image" *ngFor="let attachfile of attachFiles">
+          <ul class="small_image_content slick-initialized slick-slider slick-vertical">
+            <div class="slick-list draggable" style="height: 438px;">
+              <div class="slick-track" style="opacity: 1; height: 146px; transform: translate3d(0px, 0px, 0px);">
+                <li class="slick-slide slick-current slick-active" tabindex="0" style="width: 166px;" data-slick-index="0" aria-hidden="false">
+                  <a tabindex="0">
+                    <img alt=" Classic - Số 3 (500g)" [src]="attachfile.image">
+                  </a>
+                  
+                </li>
+              </div>
+            </div>
+          </ul>
+          <ul class="arrow_pro">
+            <li class="next_small_image slick-arrow slick-hidden" aria-disabled="true" tabindex="-1">
+              <i class="fa fa-angle-up "></i>
+            </li>
+            <li class="prev_small_image slick-arrow slick-hidden" aria-disabled="true" tabindex="-1">
+              <i class="fa fa-angle-down"></i>
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+      <form  method="POST" (ngSubmit)="createCart()">
+      <div class="pro_list_right">
+    
+        <div class="fl_ma">Giá:
+          <label class="price_sale fl_font_saigon">{{item.price}}
+            <b>
+              VNĐ</b>
+          </label>
+        </div>
+        <div class="fl_ma">Số lượng:
+          <label class="price_sale fl_font_saigon">
+            <input type="number"[(ngModel)]="quantity" class="form-control border-input " name="quantity" value="{{quantitySL}}" required>
+          </label>
+        </div>
+        <div class="fl_ma">Loại cà phê :
+          <i class="price_sale fl_font_saigon" *ngIf= "item.typesId == 3">Rang Xay</i>
+          <i  class="price_sale fl_font_saigon" *ngIf= "item.typesId == 2">Hạt</i>
+          <i  class="price_sale fl_font_saigon" *ngIf= "item.typesId == 1">Bột</i>
+        </div>
+        <div class="fl_ma">Hàng trong kho:
+          <label class="price_sale fl_font_saigon">Còn hàng
+          </label>
+        </div>
+        <div class="description">
+          <div class="addthis_inline_share_toolbox"></div>
+        </div>
+        <div class="cart_button">
+          <label  class="fl_thanhtoan addcart">
+            <input type="submit" class="btn" value="Thêm vào giỏ">
+          </label>
+        </div>
+        <div class="box_title">
+          <label style="font-size: 1.8em">
+            <a class="fl_color_034" href="javascript:voi(0);">
+              Mô tả sản phẩm </a>
+          </label>
+        </div>
+        <div class="box_product">
+          <div class="box_content">
+            {{item.description}} </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

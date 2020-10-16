@@ -1,0 +1,120 @@
+<div class="wrapper">
+        <app-admin-menu></app-admin-menu>
+  
+      <div class="main-panel">
+      <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar bar1"></span>
+                          <span class="icon-bar bar2"></span>
+                          <span class="icon-bar bar3"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">Quản lý cà phê </a>
+                  </div>
+                  <div class="collapse navbar-collapse">
+                          <ul class="nav navbar-nav navbar-right">
+                                  <li (click)="onLogout()" class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  
+                                              <p>&nbsp;Đăng Xuất &nbsp;</p>
+                                        </a>
+                                  </li>
+                              </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  <img [src]="selectedImg" class="img_avatar img-responsive" alt="Cinque Terre"/>
+                                  <p>&nbsp;{{userAdmin.lastname }} &nbsp;</p>
+                                </a>
+                                
+                          </li>
+                      </ul>
+                     
+  
+                  </div>
+              </div>
+          </nav>
+  
+  
+          <div class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="header" style="float: left;">
+                      <h4 class="title">Danh sách cà phê</h4>
+                      <p class="category"></p>
+                    </div>
+                    <div class="btn-group" style="float: right;  padding-top: 13px;padding-right: 17px;padding-bottom: 13px;">
+                        <a [routerLink] = "['/admin/type/add']" type="button" class="btn btn-default">
+                          <i class="ti-plus"></i>&nbsp;&nbsp;Thêm
+                        </a>
+                      </div>
+                    <div class="btn-group" style="float: right;width: 250px; padding-top: 13px;padding-right: 17px;padding-bottom: 13px;">
+                      <form action="loadBasedRole" method="post">
+                        <input type="hidden" id="role" value="${role}">
+                        <select style="float: left; width: 62%" id="roleID" name="roleID" class="form-control border-input">
+                          <option class="dropdown" value="4">Tất cả</option>
+                          <option class="dropdown" value="3">Cà phê hạt</option>
+                          <option class="dropdown" value="2">Cà phê rang xay</option>
+                          <option class="dropdown" value="1">Cà phê bột</option>
+                        </select>
+                        <button type="submit" style="float: right; margin-top: 2px;" class="btn btn-default">
+                          <i class="ti-filter"></i>&nbsp;Lọc</button>
+                      </form>
+      
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="content table-responsive table-full-width">
+                      <table class="row-border hover">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Tên cà phê</th>
+                            <th>Loại</th>
+                            <th>Giá(0.5 Kg)</th>
+                            <th>Hàng trong kho</th>
+                            <th>Chi tiết</th>
+                            <th></th>
+                          </tr>
+      
+                        </thead>
+                        <tbody *ngIf="items?.length != 0">
+                          <tr *ngFor="let item of items">
+                            
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td *ngIf="item.typesId == 1">Bột</td>
+                            <td *ngIf="item.typesId == 2">Hat</td>
+                            <td *ngIf="item.typesId == 3">Rang Xoay</td>
+                            <td>{{item.price}}</td>
+                            <td *ngIf="item.status == 1">Còn hàng</td>
+                            <td *ngIf="item.status == 0">Hết hàng</td>
+                            <!-- <td>{{View}}</td> -->
+                            <td  ><button  (click)= "onGotoItemDetail(item.id)" [disabled]="item.status == 0"
+                              style="font-size: 16px; color: black;margin-left: 10%" class="btn btn-default ti-pencil-alt"></button>
+                            </td>
+                              <td><button  (click)= "deleteItem(item.id)"
+                              style="font-size: 16px; color: #d45f31; " class="btn btn-default ti-trash"></button>
+                            </td>
+                         
+                          </tr>
+                                                   
+                        </tbody>
+                        <tbody *ngIf="items?.length == 0">
+                            <tr>
+                              <td colspan="3" class="no-data-available">No data!</td>
+                            </tr>
+                          <tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <app-footer></app-footer>
+      </div>
+  </div>

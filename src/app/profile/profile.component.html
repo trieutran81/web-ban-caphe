@@ -1,0 +1,185 @@
+<app-header></app-header>
+<div class="wrapper" style="margin-top: 20px;">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-md-4">
+          <div class="card card-user">
+            <div class="image">
+              <img src="assets/admin/assets/img/background.jpg" alt="..." />
+
+            </div>
+            <div class="content">
+              <div class="author">
+                <!--  <img class="avatar border-white" src="assets/img/faces/face-1.jpg" alt="..."/>   -->
+                <img class="avatar border-white" alt="" [src]="selectedImg">
+                <h4 class="title">{{user.lastname}}
+                  <br />
+                  <a href="#">
+                    <small>{{user.firstname}} {{user.lastname}}</small>
+                  </a>
+                </h4>
+              </div>
+            </div>
+            <hr>
+            <div class="text-center" style="padding-bottom: 1px;">
+              <h5>
+                <button (click)="fileInput.click()" class="btn btn-default">Đổi Avatar</button>
+                <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+                  <input type="file" id="file" name="avatar" (change)="onChangedImage($event)" #fileInput accept=".jpg, .jpeg, .png, .gif"
+                    style="color: #525252;margin-left: 5px;font-size: 10px">
+                  <!-- <input type="file" #fileInput ng2FileSelect [uploader]="uploader" /> -->
+                </span>
+                <!-- <input type="file" id="file" name="avatar" (change)="onChangedImage($event)" #fileInput accept=".jpg, .jpeg, .png, .gif"  style="color: #525252;margin-left: 5px;font-size: 10px">
+                                          <span class="file-custom" (click)="fileInput.click()"></span> -->
+                <!-- <a href="#" data-toggle="modal" data-target="#changeAvatar" style="color: #525252; font-size: 16px;">Change avatar</a> -->
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-8">
+          <div class="card">
+            <div class="header" style="margin-right: -10px">
+              <h4 style="color: whitesmoke;font-family: Arial, Helvetica, sans-serif" class="title">Chỉnh sửa hồ sơ</h4>
+
+            </div>
+            <div class="">
+              <form [formGroup]="form" method="POST" (ngSubmit)="updateUser()">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Họ</label>
+                      <input formControlName="formFirstName" [(ngModel)]="user.firstname" type="text" name="firstname" class="form-control border-input"
+                        placeholder="FirstName" value="{{user.firstname}}" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Tên</label>
+                      <input formControlName="formLastName" [(ngModel)]="user.lastname" type="text" name="lastname" class="form-control border-input"
+                        placeholder="LastName" value="{{user.lastname}}" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Ngày sinh</label>
+                      <input formControlName="formBirthday" [(ngModel)]="dateTemp" type="date" name="birthday" class="form-control border-input"
+                        data-date-format="DD MM YYYY" placeholder="Birtday" value="{{dateTemp}}" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Địa chỉ</label>
+                      <input formControlName="formAddress" [(ngModel)]="user.address" type="text" name="address" class="form-control border-input"
+                        placeholder="Address" value="{{user.address}}" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Số điện thoại</label>
+                      <input formControlName="formPhone" [(ngModel)]="user.phone" type="text" name="phoner" class="form-control border-input" placeholder="PhoneNumber"
+                        value="{{user.phone}}" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input formControlName="formEmail" [(ngModel)]="user.email" type="text" name="email" class="form-control border-input" placeholder="Email"
+                        value="{{user.email}}" required>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div style="float: left;">
+                  <button type="submit" class="btn btn-info btn-fill btn-wd">
+                    <i class="far fa-check-square" style="margin-right: 5px;" (click)="fileInput.click()"></i>
+                    Update Profile</button>
+                </div>
+                <div style="float: right;">
+                  <h5>
+                    <a href="#" data-toggle="modal" data-target="#changePass" style="color: #525252; font-size: 16px;">Đổi mật khẩu</a>
+                  </h5>
+                </div>
+                <div class="clearfix"></div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="modal fade" id="changePass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="padding-top: 100px;">
+      <form method="POST" (ngSubmit)="changePassword()">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content" style="color:#0000008a;">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Đổi mật khẩu</h4>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" id="oldpass1" name="oldpass0" value="${adminInfo.password}">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Mật khẩu cũ</label>
+                    <input [(ngModel)]="oldpass" #oldPass (change)="checkPasswordOld($event.target.value)" type="password" id="oldpass2" name="oldpass"
+                      class="form-control border-input" placeholder="Old password" required>
+                    <p>
+                      <span name="oldpass1" style="color: red;" id="oldpass_error">{{oldpass_error}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <span name="oldpass1" style="color: red;" id="oldpass_error">{{oldpass_error}}</span>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Mật khẩu mới</label>
+                    <input [(ngModel)]="newpass" #newPass (change)="checkPasswordNew($event.target.value)" type="password" id="password1" name="newpass"
+                      class="form-control border-input" placeholder="New password" required>
+                    <p>
+                      <span name="newpass" style="color: red;" id="password1_error">{{newpass_error}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <span name="newpass" style="color: red;" id="password1_error">{{newpass_error}}</span>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Xác nhận mật khẩu</label>
+                    <input [(ngModel)]="newpasscf" #newPass2 type="password" id="password2" name="confirmpass" class="form-control border-input"
+                      placeholder="Confirm password" required>
+                    <p>
+                      <span style="color: red;" id="password2_error"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-default">Cập nhật</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

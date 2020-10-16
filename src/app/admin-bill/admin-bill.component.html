@@ -1,0 +1,96 @@
+<div class="wrapper">
+    <app-admin-menu></app-admin-menu>
+      <div class="main-panel">
+      <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar bar1"></span>
+                          <span class="icon-bar bar2"></span>
+                          <span class="icon-bar bar3"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">Thống kê hóa đơn</a>
+                  </div>
+                  <div class="collapse navbar-collapse">
+                          <ul class="nav navbar-nav navbar-right">
+                                  <li (click)="onLogout()" class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  
+                                              <p>&nbsp;Đăng Xuất &nbsp;</p>
+                                        </a>
+                                  </li>
+                              </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown" >
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                      <img [src]="selectedImg" class="img_avatar img-responsive" alt="Cinque Terre"/>
+                                      <p>&nbsp;{{userAdmin.lastname }} &nbsp;</p>
+                                </a>
+                               
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+  
+  
+          <div class="content">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-md-12">
+                         
+                          <div class="card">
+                              <div class="header" style="float: left;">
+                                  <h4 class="title">Danh sách hóa đơn</h4>
+                                  <p class="category"></p>
+                              </div>
+                             
+                              <div class="clearfix"></div>
+                              <div class="content table-responsive table-full-width">
+                                  <table class="row-border hover">
+                                      <thead>
+                                          <tr>
+                                                <th>ID</th>
+                                                <th>Tên khách hàng</th>
+                                                <th>Email</th>
+                                                <th>Số điện thoại</th>
+                                                <th>Tổng tiền</th>
+                                                <th>Chi tiết hóa đơn</th>
+                                               
+                                          </tr>
+                                          
+                                      </thead>
+                                      <tbody *ngIf="bills?.leght !=0 ">
+                                          
+                                              <tr *ngFor = "let bill of bills ;let index = index;">
+                                                  <td>{{bill.id}}</td>
+                                                  <td >
+                                                      <div  >
+                
+                                                          <span>
+                                                          {{bill.firstname}} {{bill.lastname}}
+                                                          </span>
+                                                      </div>
+                                                  </td>
+                                                  <td>{{bill.email}}</td>
+                                                  <td>{{bill.phone}}</td>
+                                                  <td>{{bill.total}} vnđ</td>
+                                                  <td><button (click)= "onGotoBillDetail(bill.id)" 
+                                                  style="font-size: 16px; color: black;margin-left: 30%" class="btn btn-default ti-pencil-alt"></button></td>
+                                                  <!-- <td><a href="#" onclick="return getConfirmation();" 
+                                                  style="font-size: 16px; color: #d45f31;" class="btn btn-default ti-trash"></a></td> -->
+                                              </tr>
+                                         
+                                      </tbody>
+                                  </table> 
+                                  <div id="pageNavPosition" style="padding-top: 20px" align="center"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <app-footer></app-footer>
+      </div>
+  </div>

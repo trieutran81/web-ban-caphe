@@ -1,0 +1,96 @@
+<app-header></app-header>
+<div class="content">
+  <!---start-services---->
+  <div class="services">
+    <div class="wrap">
+      <div class="specials">
+        <div class="specials-heading">
+          <label>
+            <a href="#" title="Giỏ Hàng">Giỏ Hàng </a>
+          </label>
+
+          <div class="clear"> </div>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+
+                  <td class="text-left">Tên sản phẩm</td>
+                  <td class="text-left">Dòng sản phẩm</td>
+                  <td class="text-left">Số lượng</td>
+                  <td class="text-right">Đơn Giá</td>
+                  <td class="text-right"></td>
+                </tr>
+              </thead>
+              <tbody *ngIf="cartItem?.length != 0">
+                <tr *ngFor="let cartitem of cartItem">
+                  <td class="text-left"(click)= "onGotoProductDetail(cartitem.id)">
+                    <a >{{cartitem.name}}</a>
+                    <span class="text-danger">***</span>
+                  </td>
+                  <td class="text-left" *ngIf="cartitem.type == 1">CÀ PHÊ BỘT</td>
+                  <td class="text-left" *ngIf="cartitem.type == 2">CÀ PHÊ HẠT</td>
+                  <td class="text-left" *ngIf="cartitem.type == 3">CÀ PHÊ RANG XAY</td>
+                  <td class="text-left">
+                    <form  [formGroup]="form" method="POST">
+                        <div class="input-group btn-block" style="max-width: 200px;">
+                            <input name="idCartItem" type="hidden"value="{{cartitem.id}" size="1" class="form-control">
+                            
+                            <input name="quantityItem" #Input type="number"value="{{cartitem.quantity}}" size="1" class="form-control">
+                            <span class="input-group-btn">
+                              <button type="button" (click)="UpdateQuantity(cartitem.id,Input.value)"  data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Cập nhật">
+                                <i class="fa fa-save"></i>
+                              </button>
+                            </span>
+                          </div>
+                        </form>
+                    
+                  </td>
+                  <td class="text-right">{{cartitem.price}}</td>
+                  <td class="text-right"><div class="input-group btn-block" style="max-width: 200px;">
+    
+                    <span class="input-group-btn">
+                      
+                      <button type="button"(click)="deleteCartItem(cartitem.id)" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="Loại bỏ">
+                        <i class="fa fa-times-circle"></i>
+                      </button>
+                    </span>
+                  </div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-sm-offset-8">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td class="text-right">
+                      <strong>Thành tiền:</strong>
+                    </td>
+                    <td class="text-right">{{total}} VNĐ</td>
+                  </tr>
+                  <tr>
+                    <td class="text-right">
+                      <strong>Tổng cộng :</strong>
+                    </td>
+                    <td class="text-right">{{total}} VNĐ</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="pull-left">
+              <a [routerLink] = "['/product']" class="btn btn-default">Tiếp tục mua hàng</a>
+            </div>
+            <div class="pull-right" (click)="createBill()">
+              <button  class="btn btn-primary">Thanh toán</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

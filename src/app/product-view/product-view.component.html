@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="content">
+  <!---start-services---->
+  <div class="services">
+    <div class="wrap">
+      <div class="specials">
+        <div class="specials-heading">
+            <label *ngIf="id == 1">
+                <a  href="product/view" title="Cà phê bột">CÀ PHÊ BỘT</a>
+              </label>
+              <label *ngIf="id == 2">
+                  <a  href="product/view" title="Cà phê rang xay">CÀ PHÊ HẠT</a>
+                </label>
+          <label *ngIf="id == 3">
+            <a  href="product/view" title="Cà phê rang xay">CÀ PHÊ RANG XAY</a>
+          </label>
+          
+          <div class="clear"> </div>
+        </div>
+        <div class="clear"> </div>
+        <div class="specials-grids">
+            <div class="special-grid"*ngFor="let item of items" >
+                 <div *ngFor="let attachfile of attachFiles">
+                   <div *ngIf="attachfile.itemId == item.id">
+                 <a>
+                   <img (click)= "onGotoProductDetail(item.id)" [src]="attachfile.image" title="image-name" width="70%" height="40%">
+                 </a>
+                 </div>
+               </div>
+                 <a (click)= "onGotoProductDetail(item.id)">
+                   {{item.name}}
+                   <div class="clear"> </div>
+                   (500g)
+                 </a>
+                 
+                 <h3>{{item.price}} VNĐ</h3>
+               </div>
+               </div>
+          
+          <div class="clear"> </div>
+        </div>
+        <div class="clear"> </div>
+      </div>
+      
+      
+    </div>
+  </div>
+<app-footer></app-footer>

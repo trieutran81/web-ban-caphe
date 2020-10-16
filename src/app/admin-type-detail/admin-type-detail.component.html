@@ -1,0 +1,174 @@
+<div class="wrapper">
+        <app-admin-menu></app-admin-menu>
+      <div class="main-panel">
+      <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar bar1"></span>
+                          <span class="icon-bar bar2"></span>
+                          <span class="icon-bar bar3"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">Quản lý cà phê </a>
+                  </div>
+                  <div class="collapse navbar-collapse">
+                          <ul class="nav navbar-nav navbar-right">
+                                  <li (click)="onLogout()" class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  
+                                              <p>&nbsp;Đăng Xuất &nbsp;</p>
+                                        </a>
+                                  </li>
+                              </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                      <img src="../../assets/admin/assets/img/faces/face-0.jpg" class="img_avatar img-responsive" alt="Cinque Terre"/>
+                                      <p>&nbsp;TRIEU &nbsp;</p>
+                                </a>
+                               
+                          </li>
+                      </ul>
+                     
+  
+                  </div>
+              </div>
+          </nav>
+  
+  
+          <div class="content">
+              <div class="container-fluid">
+                  <div class="row">
+                    <div class="btn-group" style=" padding-bottom: 15px;padding-left: 20px;">
+                            <a href="" type="button" class="btn btn-default">
+                              <i class="ti-arrow-left"></i>&nbsp;&nbsp;back
+                            </a>
+                        </div>
+                  </div>
+                  
+                    <div class="row">
+                        <form [formGroup]="form" method="post"(ngSubmit)="updateItem()">
+                      <div class="col-md-12">
+                            <div class="cntr mt20">
+                                    <div  class="pgwSlider wide">
+                                        <div class="ps-current" style="height: 400px;">
+                                            <ul>
+                                                <li class="elt_1" style="display: list-item; opacity: 1; z-index: 2;">
+                                                    <img [src]="selectedImg" alt="item.name" 
+                                                    style=" height: 100%;background-position: center;background-repeat: no-repeat; background-size: cover;">
+                                                </li>
+                                            </ul>
+                                            <span class="ps-caption" style="display: block; font-size: 26px;" >
+                                             Cà Phê</span>
+                                        </div>
+                                        <ul *ngFor="let attachfile of attachFiles" class="ps-list" style="display: block;">
+                                            <li class="elt_1" style="cursor: pointer; opacity: 1; width: 25%; height: 100px;">
+                                                <img [src]="selectedImg" alt="item.name" 
+                                                style=" height: 100%;background-position: center;background-repeat: no-repeat; background-size: cover;">
+                                                <span>Cà phê 1</span>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="text-center" style="padding-top:10px; padding-bottom: 15px; float:right;">
+                                 
+                                 <h5>
+                                    <button (click)="fileInput.click()" type="button" style=" font-size: 14px;" class="btn btn-default"><i class="ti-plus"></i>&nbsp;Chọn ảnh</button>
+                                    <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+                                        <input  type="file" id="file" name="imagecf" (change)="onChangedImage($event)" #fileInput accept=".jpg, .jpeg, .png, .gif"
+                                            style="color: #525252;margin-left: 5px;font-size: 10px">
+                                        <!-- <input type="file" #fileInput ng2FileSelect [uploader]="uploader" /> -->
+                                    </span>
+                                    <!-- <input type="file" id="file" name="avatar" (change)="onChangedImage($event)" #fileInput accept=".jpg, .jpeg, .png, .gif"  style="color: #525252;margin-left: 5px;font-size: 10px">
+                                                <span class="file-custom" (click)="fileInput.click()"></span> -->
+                                    <!-- <a href="#" data-toggle="modal" data-target="#changeAvatar" style="color: #525252; font-size: 16px;">Change avatar</a> -->
+                                </h5>
+                                </div>
+                            
+                      </div>
+                        <div class="col-md-12">
+                          
+                            <div class="card">
+                                <div class="header" style="float: left;">
+                                    <h4 class="title">Thông tin cà phê</h4>
+                                    <p class="category"></p>
+                                    
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                                <div class="content">
+                                   
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Tên cà phê</label>
+                                                    <input formControlName="formName" type="text" [(ngModel)]="itemUpdate.name"class="form-control border-input" name="name" value="{{item.name}}" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Loại cà phê</label>
+                                                    <select formControlName="formType" id="listloaiphong" [(ngModel)]="itemUpdate.typesId" name="typesId" class="form-control border-input"
+                                                    (change)="ChangingValue($event)" [value]='item.typesId'>
+                                                        <option class="dropdown"   value="1">Hạt</option>
+                                                        <option class="dropdown"   value="2">Ran xay</option>
+                                                        <option class="dropdown"  value="3">Bột</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+            
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Giá 0.5 kg</label>
+                                                    <div class="input-group">
+                                                        <span style="border: 1px solid #ccc5b9;" class="input-group-addon "><i style="font-size: 15px;" class="ti-money"></i></span>
+                                                        <input formControlName="formPrice" type="number" [(ngModel)]="itemUpdate.price"class="form-control border-input" name="price" value="{{item.price}}" required>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Trạng thái</label>
+                                                    <input type="text" class="form-control border-input" disabled placeholder="Status" name="status" value="Con hàng">
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Mô tả</label>
+                                                    <textarea formControlName="formDescription" rows="7" [(ngModel)]="itemUpdate.description" class="form-control border-input" name="description" placeholder="Here can be your description">{{item.description}}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="text-align: center;" >
+                                            <button type="submit" class="btn btn-info btn-fill btn-lg">
+                                                    <i class="far fa-check-square" style="margin-right: 5px;" (click)="fileInput.click()">
+                                                        </i>Cập Nhật</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+    
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+          </div>
+
+   
+        
+      
+          <app-footer></app-footer>
+      </div>
+  </div>
